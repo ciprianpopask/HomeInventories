@@ -2,10 +2,19 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:prism="http://prismlibrary.com/"
+        xmlns:common="clr-namespace:HI.VirtualDesk.GUI.Common;assembly=HI.VirtualDesk.GUI.Common"
         x:Class="HI.VirtualDesk.Views.MainWindow"
         prism:ViewModelLocator.AutoWireViewModel="True"
         Title="{Binding Title}" Height="350" Width="525">
     <Grid>
-        <ContentControl prism:RegionManager.RegionName="ContentRegion" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ContentControl Grid.Row="0" prism:RegionManager.RegionName="{x:Static common:PrismRegionNames.ShellMenuRegion}"/>
+
+        <ContentControl Grid.Row="1" 
+                        prism:RegionManager.RegionName="{x:Static common:PrismRegionNames.ShellWorkspaceRegion}" />
     </Grid>
 </Window>

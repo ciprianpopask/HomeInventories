@@ -1,19 +1,15 @@
-﻿using Prism.Mvvm;
+﻿using HI.VirtualDesk.TextResources;
+using Prism.Mvvm;
 
 namespace HI.VirtualDesk.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
-        private string _title = "Prism Unity Application";
-        public string Title
+        private string mtitle = Texts.AppTitle_Text;
+        public string Mtitle
         {
-            get { return _title; }
-            set { SetProperty(ref _title, value); }
-        }
-
-        public MainWindowViewModel()
-        {
-
+            get { return mtitle; }
+            set { SetProperty(ref mtitle, value); }
         }
     }
 }

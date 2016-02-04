@@ -2,6 +2,7 @@
 using Prism.Unity;
 using HI.VirtualDesk.Views;
 using System.Windows;
+using Prism.Logging;
 
 namespace HI.VirtualDesk
 {
@@ -16,5 +17,12 @@ namespace HI.VirtualDesk
         {
             Application.Current.MainWindow.Show();
         }
+
+        protected override void InitializeModules()
+        {
+            base.InitializeModules();
+        }
+
+       
     }
 }
