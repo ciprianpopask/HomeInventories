@@ -3,13 +3,24 @@ using Prism.Mvvm;
 
 namespace HI.VirtualDesk.ViewModels
 {
+    /// <summary>
+    /// App main window's VM
+    /// </summary>
     public class MainWindowViewModel : BindableBase
     {
-        private string mtitle = Texts.AppTitle_Text;
-        public string Mtitle
+        private string mApplicationTitle = Texts.AppTitle_Text;
+
+        public string ApplicationTitle
         {
-            get { return mtitle; }
-            set { SetProperty(ref mtitle, value); }
+            get
+            {
+                return mApplicationTitle;
+            }
+            set
+            {
+                SetProperty(ref mApplicationTitle, value);
+            }
         }
+
     }
 }
