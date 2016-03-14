@@ -18,9 +18,9 @@ namespace HI.VirtualDesk.GUI.ApplicationMenu
     /// <summary>
     /// Interaction logic for ApplicationMenu.xaml
     /// </summary>
-    public partial class ApplicationMenu : UserControl
+    public partial class ApplicationMenuView : UserControl
     {
-        public ApplicationMenu()
+        public ApplicationMenuView()
         {
             InitializeComponent();
         }

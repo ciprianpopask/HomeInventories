@@ -5,10 +5,10 @@
         xmlns:common="clr-namespace:HI.VirtualDesk.GUI.Common;assembly=HI.VirtualDesk.GUI.Common"
         x:Class="HI.VirtualDesk.Views.MainWindow"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="{Binding ApplicationTitle}" Height="350" Width="525">
+        Title="{Binding ApplicationTitle}" MinHeight="450" MinWidth="525">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="150"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 

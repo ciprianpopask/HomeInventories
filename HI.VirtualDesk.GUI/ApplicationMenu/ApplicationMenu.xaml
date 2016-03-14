@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="HI.VirtualDesk.GUI.ApplicationMenu.ApplicationMenu"
+﻿<UserControl x:Class="HI.VirtualDesk.GUI.ApplicationMenu.ApplicationMenuView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HI.VirtualDesk.GUI.ApplicationMenu"
              xmlns:main="clr-namespace:HI.VirtualDesk;assembly=HI.VirtualDesk"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -14,9 +14,12 @@
         </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
     </UserControl.Resources>
-    
+      
     
     <Grid>
-               
+        <Border Background="{StaticResource  ToolBarToggleButtonHorizontalBackground}"/>
+        <TextBlock Text="MAIN MENU PLACEHOLDER" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        
+        
     </Grid>
 </UserControl>
