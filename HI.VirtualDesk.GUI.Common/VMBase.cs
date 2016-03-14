@@ -1,6 +1,10 @@
 ﻿#region USING DIRECTIVES
 
 using System;
+using System.Collections.Generic;
+using System.Net.NetworkInformation;
+using System.Runtime.Remoting.Messaging;
+using System.Runtime.Serialization;
 using Prism.Events;
 using Prism.Mvvm;
 using Prism.Regions;
@@ -14,13 +18,18 @@ namespace HI.VirtualDesk.GUI.Common
     /// </summary>
     public class VMBase : BindableBase, INavigationAware
     {
+        #region Private members and ctor
+
+        private List<RelayCommand> mCommands;
+        private RelayCommand mNavigateCommand;
+
         /// <summary>
         ///     Initializes a new instance of the <see cref="VMBase" /> class.
         /// </summary>
         /// <param name="aggregator">The aggregator.</param>
         /// <param name="regionManager">The region manager.</param>
         /// <exception cref="System.ArgumentNullException">
-        ///     regionManager or centerManager or repository
+        ///     Any parameter
         /// </exception>
         public VMBase(
             IEventAggregator aggregator,
@@ -37,31 +46,77 @@ namespace HI.VirtualDesk.GUI.Common
                 throw new ArgumentNullException("aggregator");
             }
 
-            Manager = regionManager;
+            RegionManager = regionManager;
             EventAggregator = aggregator;
+
+            NavigateCommand = new RelayCommand(NavigateCommandExecute, NavigateCommandCanExecute);
+
         }
 
-        public IRegionManager Manager
+        #endregion
+
+        #region Public properties
+
+        /// <summary>
+        /// Prisdm RegionManager 
+        /// </summary>
+        public IRegionManager RegionManager
         {
             get;
-            private set;
         }
 
+        /// <summary>
+        /// Prism EventAggregator
+        /// </summary>
         public IEventAggregator EventAggregator
         {
             get;
             private set;
         }
 
-        #region Implementation of INavigationAware
+        /// <summary>
+        /// Commands of this ViewModel
+        /// </summary>
+        public List<RelayCommand> Commands
+        {
+            get
+            {
+                return mCommands;
+            }
+            set
+            {
+                mCommands = value;
+                SetProperty(ref mCommands, value);
+            }
+        }
+
+        /// <summary>
+        /// Default version of a command to request navigation via <see cref="IRegionManager"/>
+        /// </summary>
+        public RelayCommand NavigateCommand
+        {
+            get
+            {
+                return mNavigateCommand;
+            }
+            set
+            {
+                mNavigateCommand = value;
+                SetProperty(ref mNavigateCommand, value);
+            }
+        }
+
+        #endregion
+
+        #region Navigation
 
         /// <summary>
         /// Called when the implementer has been navigated to.
         /// </summary>
         /// <param name="navigationContext">The navigation context.</param>
-        public void OnNavigatedTo(NavigationContext navigationContext)
+        public virtual void OnNavigatedTo(NavigationContext navigationContext)
         {
-            throw new NotImplementedException();
+            
         }
 
         /// <summary>
@@ -71,18 +126,38 @@ namespace HI.VirtualDesk.GUI.Common
         /// <returns>
         /// <see langword="true"/> if this instance accepts the navigation request; otherwise, <see langword="false"/>.
         /// </returns>
-        public bool IsNavigationTarget(NavigationContext navigationContext)
+        public virtual bool IsNavigationTarget(NavigationContext navigationContext)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         /// <summary>
         /// Called when the implementer is being navigated away from.
         /// </summary>
         /// <param name="navigationContext">The navigation context.</param>
-        public void OnNavigatedFrom(NavigationContext navigationContext)
+        public virtual void OnNavigatedFrom(NavigationContext navigationContext)
         {
-            throw new NotImplementedException();
+            
+        }
+
+        /// <summary>
+        /// Determines if the VM may request navigation to supplied parameter
+        /// </summary>
+        /// <param name="address">Must be non-null in order to be used for navigation</param>
+        /// <returns></returns>
+        public virtual bool NavigateCommandCanExecute(object address)
+        {
+            return !string.IsNullOrEmpty(address?.ToString());
+        }
+
+        /// <summary>
+        /// Executes navigation request to supplied parameter
+        /// </summary>
+        /// <param name="address">Source string used to build Uri for navigation request</param>
+        public virtual void NavigateCommandExecute(object address)
+        {
+            RegionManager.RequestNavigate(PrismRegionNames.ShellMenuRegion,
+                new Uri(address.ToString(), UriKind.RelativeOrAbsolute));
         }
 
         #endregion
