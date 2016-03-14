@@ -57,6 +57,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationMenu\ApplicationMenu.xaml.cs">
+      <DependentUpon>ApplicationMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HI.VirtualDesk.GUIModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -87,9 +90,17 @@
       <Project>{c8348a93-3e97-42f5-b0a6-522745bb4e1d}</Project>
       <Name>HI.VirtualDesk.GUI.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HI.VirtualDesk\HI.VirtualDesk.csproj">
+      <Project>{99c9e82c-c594-446d-aa59-8ffbc43ad226}</Project>
+      <Name>HI.VirtualDesk</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="ApplicationMenu\" />
+    <Page Include="ApplicationMenu\ApplicationMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
