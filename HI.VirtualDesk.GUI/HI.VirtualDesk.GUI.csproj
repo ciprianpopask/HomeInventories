@@ -82,7 +82,15 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\HI.VirtualDesk.GUI.Common\HI.VirtualDesk.GUI.Common.csproj">
+      <Project>{c8348a93-3e97-42f5-b0a6-522745bb4e1d}</Project>
+      <Name>HI.VirtualDesk.GUI.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ApplicationMenu\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

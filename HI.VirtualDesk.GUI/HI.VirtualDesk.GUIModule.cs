@@ -1,6 +1,7 @@
 ﻿using Prism.Modularity;
 using Prism.Regions;
 using System;
+using HI.VirtualDesk.GUI.Common;
 
 namespace HI.VirtualDesk.GUI
 {
@@ -11,11 +12,15 @@ namespace HI.VirtualDesk.GUI
         public ModuleInit(IRegionManager regionManager)
         {
             mRegionManager = regionManager;
+            //mRegionManager.RegisterViewWithRegion(PrismRegionNames.ShellMenuRegion,)
+
+
+
         }
 
         public void Initialize()
         {
-            throw new NotImplementedException();
+        
         }
     }
 }

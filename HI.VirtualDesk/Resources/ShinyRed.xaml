@@ -3228,10 +3228,8 @@
                     </Grid>
 
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsPressed" Value="True">
-
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="true">
+                        <Trigger Property="IsPressed" Value="True" />
+	                    <Trigger Property="IsMouseOver" Value="true">
                             <Trigger.ExitActions>
                                 <BeginStoryboard Storyboard="{StaticResource HoverOff}" x:Name="HoverOff_BeginStoryboard"/>
                             </Trigger.ExitActions>

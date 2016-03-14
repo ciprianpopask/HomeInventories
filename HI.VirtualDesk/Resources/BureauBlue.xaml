@@ -649,12 +649,10 @@
                             <Grid>
                                 <Ellipse x:Name="Background" Margin="1" Width="14" Height="14" Fill="{DynamicResource RadioButtonBackgroundBrush}" Stroke="{DynamicResource RadioButtonBorderBrush}" StrokeThickness="1" />
                                 <Ellipse x:Name="CircleFill" Margin="3.045,3.157,2.955,2.843" StrokeThickness="1" Fill="{DynamicResource RadioButtonInnerCircleBrush}" Stroke="{DynamicResource RadioButtonInnerCircleBorderBrush}"/>
-                                <Ellipse x:Name="CircleOver" Margin="2.847,2.847,3.153,3.153" StrokeThickness="1" Opacity="0" Fill="{DynamicResource RadioButtonMouseOverBrush}" Stroke="{DynamicResource RadioButtonMouseOverBorderBrush}">
-                                </Ellipse>
-                                <Ellipse x:Name="CirclePress" Margin="2.73,2.73,3.27,3.27" StrokeThickness="1" Opacity="0" Fill="{DynamicResource RadioButtonPressBrush}" Stroke="{DynamicResource RadioButtonPressBorderBrush}"/>
-                                <Ellipse x:Name="CheckIcon" Margin="4.47,4.498,3.53,3.502" StrokeThickness="1" Visibility="Collapsed" Stroke="{DynamicResource RadioButtonCheckIconBorderBrush}" Fill="{DynamicResource RadioButtonCheckIconBrush}">
-                                </Ellipse>
-                                <Ellipse x:Name="DisabledVisualElement" Width="14" Height="14" Opacity="0.35" Visibility="Visible" >
+                                <Ellipse x:Name="CircleOver" Margin="2.847,2.847,3.153,3.153" StrokeThickness="1" Opacity="0" Fill="{DynamicResource RadioButtonMouseOverBrush}" Stroke="{DynamicResource RadioButtonMouseOverBorderBrush}" />
+	                            <Ellipse x:Name="CirclePress" Margin="2.73,2.73,3.27,3.27" StrokeThickness="1" Opacity="0" Fill="{DynamicResource RadioButtonPressBrush}" Stroke="{DynamicResource RadioButtonPressBorderBrush}"/>
+                                <Ellipse x:Name="CheckIcon" Margin="4.47,4.498,3.53,3.502" StrokeThickness="1" Visibility="Collapsed" Stroke="{DynamicResource RadioButtonCheckIconBorderBrush}" Fill="{DynamicResource RadioButtonCheckIconBrush}" />
+	                            <Ellipse x:Name="DisabledVisualElement" Width="14" Height="14" Opacity="0.35" Visibility="Visible" >
                                     <Ellipse.Stroke>
                                         <SolidColorBrush Color="{DynamicResource WhiteColor}"/>
                                     </Ellipse.Stroke>
@@ -1046,10 +1044,8 @@
                     <Grid SnapsToDevicePixels="true">
                         <Rectangle x:Name="BackgroundGradientOver" RadiusX="1" RadiusY="1" Stroke="{DynamicResource MouseOverBorderBrush}" Opacity="0" Fill="{DynamicResource MouseOverBrush}"/>
                         <Rectangle x:Name="BackgroundGradientSelectedDisabled" RadiusX="1" RadiusY="1" Opacity="0" Fill="{DynamicResource ListItemSelectedBrush}" Stroke="{DynamicResource ListItemSelectedBorderBrush}"/>
-                        <Rectangle x:Name="BackgroundGradientSelected" Stroke="{DynamicResource PressedBorderBrush}" StrokeThickness="1" RadiusX="1" RadiusY="1" Opacity="0" Fill="{DynamicResource PressedBrush}">
-
-                        </Rectangle>
-                        <ContentPresenter x:Name="contentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" />
+                        <Rectangle x:Name="BackgroundGradientSelected" Stroke="{DynamicResource PressedBorderBrush}" StrokeThickness="1" RadiusX="1" RadiusY="1" Opacity="0" Fill="{DynamicResource PressedBrush}" />
+	                    <ContentPresenter x:Name="contentPresenter" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" />
                     </Grid>
                     <ControlTemplate.Triggers>
 
@@ -2601,8 +2597,7 @@
                                 <Border x:Name="BorderTop" BorderThickness="2,0,2,0" CornerRadius="3,3,0,0" BorderBrush="{DynamicResource TabItemBorderTopBrush}"/>
                                 <Border x:Name="HighlightTop" Margin="2,0,2,0" BorderThickness="1,3,1,0" CornerRadius="1.25,1.25,0,0" BorderBrush="{DynamicResource TabItemHighlightTopBrush}"/>
                                 <Border x:Name="BorderTop2" Margin="-1,0,-1,0" BorderBrush="{DynamicResource TabItemBorderTop2Brush}" BorderThickness="1,1,1,0" CornerRadius="3,3,0,0" IsHitTestVisible="false" />
-                                <Border x:Name="FocusVisualTop" Margin="-1,0,-1,0" BorderThickness="3,2,3,0" CornerRadius="3,3,0,0" Opacity="0" BorderBrush="{DynamicResource TabItemFocusBrush}">
-                                </Border>
+                                <Border x:Name="FocusVisualTop" Margin="-1,0,-1,0" BorderThickness="3,2,3,0" CornerRadius="3,3,0,0" Opacity="0" BorderBrush="{DynamicResource TabItemFocusBrush}" />
                             </Grid>
                             <Border x:Name="DisabledVisualTopSelected" Margin="1,0,1,0" Background="{DynamicResource DisabledBackgroundBrush}" CornerRadius="3,3,0,0" IsHitTestVisible="false" Visibility="Collapsed" />
                             <ContentPresenter HorizontalAlignment="Center" Margin="{TemplateBinding Padding}" x:Name="ContentSite" VerticalAlignment="Center" RecognizesAccessKey="True" ContentSource="Header" />
